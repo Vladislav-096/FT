@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Tele2";
+  src: local("Tele2 Regular"), local("Tele2-Regular"),
+    url("/fonts/Tele2\ TextSans\ Web\ SHORT\ Regular.woff2") format("woff2"),
+    url("/fonts/Tele2\ TextSans\ Web\ SHORT\ Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tele2";
+  src: local("Tele2 Bold"), local("Tele2-Bold"),
+    url("/fonts/Tele2\ TextSans\ Web\ SHORT\ Bold.woff2") format("woff2"),
+    url("/fonts/Tele2\ TextSans\ Web\ SHORT\ Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}

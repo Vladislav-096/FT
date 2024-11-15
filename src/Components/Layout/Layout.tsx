@@ -1,3 +1,9 @@
+import { Header } from "../Header/Header";
+
 export const Layout = () => {
-  return <div className="page"></div>;
+  return (
+    <div className="page">
+      <Header />
+    </div>
+  );
 };
