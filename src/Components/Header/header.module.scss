@@ -1,3 +1,5 @@
+@use "../../styles/_variables.scss" as *;
+
 .header {
   .header-upper {
     background-color: #1f2229;
@@ -6,18 +8,36 @@
       padding: 6px 0 7px 0;
       display: flex;
       .logo-picture {
+        flex-grow: 1;
       }
 
-      .logo-img {
+      .logo-link {
       }
 
       .location {
+        padding-left: 25px;
+        position: relative;
         margin-left: auto;
-        color: aliceblue;
+        margin-right: 32px;
+        color: $primary-text-color;
+        cursor: pointer;
+        user-select: none;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 13px;
+          height: 18px;
+          background-image: url("./src/assets/location.svg");
+          background-repeat: no-repeat;
+        }
       }
 
       .bell-picture {
         margin-left: auto;
+        cursor: pointer;
       }
 
       .bell-img {
@@ -42,13 +62,26 @@
 
   .header-lower {
     .header-lower-content {
+      padding: 13px 0 13px 0;
+
       .nav {
-      }
+        width: 100%;
 
-      .nav-lsit {
-      }
+        .nav-lsit {
+          display: flex;
+          flex-wrap: nowrap;
+          overflow-x: auto;
 
-      .nav-list-item {
+          .nav-list-item {
+            .nav-link {
+              color: $primary-text-color;
+              white-space: nowrap;
+            }
+            &:not(:last-child) {
+              margin-right: 18px;
+            }
+          }
+        }
       }
     }
   }

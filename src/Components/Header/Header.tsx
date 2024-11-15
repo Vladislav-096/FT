@@ -9,7 +9,9 @@ export const Header = () => {
         <div className="container">
           <div className={styles["header-upper-content"]}>
             <picture className={styles["logo-picture"]}>
-              <img className={styles["logo-img"]} src={logo} alt="Logo" />
+              <a className={styles["logo-link"]} href="">
+                <img className={styles["logo-img"]} src={logo} alt="Logo" />
+              </a>
             </picture>
             <p className={styles.location}>Москва и область</p>
             <picture className={styles["bell-picture"]}>
@@ -28,15 +30,35 @@ export const Header = () => {
           <div className={styles["header-lower-content"]}>
             <nav className={styles.nav}>
               <ul className={`list-reset ${styles["nav-lsit"]}`}>
-                <li className={styles["nav-list-item"]}>Преимущества Tele2</li>
-                <li className={styles["nav-list-item"]}>Тарифы</li>
                 <li className={styles["nav-list-item"]}>
-                  Акции и спецпредложения
+                  <a className={styles["nav-link"]} href="#">
+                    Преимущества Tele2
+                  </a>
                 </li>
-                <li className={styles["nav-list-item"]}>Промотариф Tele2</li>
-                <li className={styles["nav-list-item"]}>Технология eSIM</li>
                 <li className={styles["nav-list-item"]}>
-                  Подключение нового абонента
+                  <a className={styles["nav-link"]} href="#">
+                    Тарифы
+                  </a>
+                </li>
+                <li className={styles["nav-list-item"]}>
+                  <a className={styles["nav-link"]} href="#">
+                    Акции и спецпредложения
+                  </a>
+                </li>
+                <li className={styles["nav-list-item"]}>
+                  <a className={styles["nav-link"]} href="#">
+                    Промотариф Tele2
+                  </a>
+                </li>
+                <li className={styles["nav-list-item"]}>
+                  <a className={styles["nav-link"]} href="#">
+                    Технология eSIM
+                  </a>
+                </li>
+                <li className={styles["nav-list-item"]}>
+                  <a className={styles["nav-link"]} href="#">
+                    Подключение нового абонента
+                  </a>
                 </li>
               </ul>
             </nav>
