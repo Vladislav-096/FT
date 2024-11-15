@@ -1,8 +1,15 @@
 import styles from "./header.module.scss";
 import logo from "../../assets/Logo.svg";
 import bell from "../../assets/bell.svg";
+import { useState } from "react";
 
 export const Header = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles["header-upper"]}>
@@ -17,17 +24,33 @@ export const Header = () => {
             <picture className={styles["bell-picture"]}>
               <img className={styles["bell-img"]} src={bell} alt="Bell icon" />
             </picture>
-            <div className={styles["burger-menu"]}>
-              <div className={styles["burger-bar"]}></div>
-              <div className={styles["burger-bar"]}></div>
-              <div className={styles["burger-bar"]}></div>
+            <div onClick={handleDropdown} className={styles["burger-menu"]}>
+              <div
+                className={`${styles["burger-bar"]} ${
+                  isDropdownOpen ? styles["burger-cross"] : ""
+                }`}
+              ></div>
+              <div
+                className={`${styles["burger-bar"]} ${
+                  isDropdownOpen ? styles["burger-cross"] : ""
+                }`}
+              ></div>
+              <div
+                className={`${styles["burger-bar"]} ${
+                  isDropdownOpen ? styles["burger-cross"] : ""
+                }`}
+              ></div>
             </div>
           </div>
         </div>
       </div>
       <div className={styles["header-lower"]}>
         <div className="container">
-          <div className={styles["header-lower-content"]}>
+          <div
+            className={`${styles["header-lower-content"]} ${
+              isDropdownOpen ? styles["show-dropdown"] : ""
+            }`}
+          >
             <nav className={styles.nav}>
               <ul className={`list-reset ${styles["nav-lsit"]}`}>
                 <li className={styles["nav-list-item"]}>

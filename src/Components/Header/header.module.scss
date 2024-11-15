@@ -36,8 +36,12 @@
       .bell-img {
       }
 
+      .burger-cross {
+      }
+
       .burger-menu {
         display: none;
+        // position: relative;
         flex-direction: column;
         justify-content: space-between;
         width: 18px;
@@ -48,20 +52,51 @@
           display: flex;
         }
 
+        .burger-cross {
+          transition: transform 0.2s, opacity 0.2s;
+          &:first-child {
+            transform-origin: 0 50%;
+            transform: rotate(45deg);
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
+          }
+
+          &:nth-child(3) {
+            transform-origin: 0 50%;
+            transform: rotate(-45deg);
+          }
+        }
+
         .burger-bar {
           width: 100%;
           height: 2px;
           background-color: #fff;
           border-radius: 2px;
+          transition: transform 0.2s, opacity 0.2s;
+
+          &:first-child {
+            transform-origin: 0 50%;
+          }
+
+          &:nth-child(3) {
+            transform-origin: 0 50%;
+          }
         }
       }
     }
   }
 
   .header-lower {
+    @media (max-width: 480px) {
+      overflow: hidden;
+    }
     .header-lower-content {
       padding: 13px 0 13px 0;
-      background-color: #ff6abc;
+      // background-color: #ff6abc;
+      transform: translateY(-100vh);
+      transition: transform 0.5s ease-in-out;
 
       @media (max-width: 480px) {
         position: relative;
@@ -70,7 +105,11 @@
       }
 
       .nav {
-        width: 100%;
+        @media (max-width: 480px) {
+          height: 100%;
+          overflow-y: auto;
+          padding-bottom: 58px;
+        }
 
         .nav-lsit {
           display: flex;
@@ -79,7 +118,7 @@
 
           @media (max-width: 480px) {
             flex-direction: column;
-            overflow-y: auto;
+            // overflow-y: auto;
             padding: 0 3px 0 3px;
           }
 
@@ -139,6 +178,9 @@
           @include location(none, inline-block);
         }
       }
+    }
+    .show-dropdown {
+      transform: translateY(0vh);
     }
   }
 }
