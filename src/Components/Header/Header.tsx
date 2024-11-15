@@ -62,6 +62,9 @@ export const Header = () => {
                 </li>
               </ul>
             </nav>
+            <div className={styles["location-wrapper"]}>
+              <p className={styles.location}>Москва и область</p>
+            </div>
           </div>
         </div>
       </div>
