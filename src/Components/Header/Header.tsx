@@ -2,10 +2,27 @@ import styles from "./header.module.scss";
 import logo from "../../assets/Logo.svg";
 import bell from "../../assets/bell.svg";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
+interface linkItem {
+  path: string;
+  descr: string;
+}
+
+type linkItems = linkItem[];
+
+const links: linkItems = [
+  { path: "/benefits", descr: "Преимущества Теle2" },
+  { path: "/tariffs", descr: "Тарифы" },
+  { path: "/promotions", descr: "Акции и спецпредложения" },
+  { path: "/promotariff", descr: "Промотариф Tele2" },
+  { path: "/esim", descr: "Технология eSIM" },
+  { path: "/subscription", descr: "Подключение нового абонента" },
+];
 
 export const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+  const location = useLocation();
 
   const handleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
@@ -17,7 +34,13 @@ export const Header = () => {
         <div className="container">
           <div className={styles["header-upper-content"]}>
             <picture className={styles["logo-picture"]}>
-              <Link className={styles["logo-link"]} to={"/"}>
+              <Link
+                onClick={() => {
+                  setIsDropdownOpen(false);
+                }}
+                className={styles["logo-link"]}
+                to={"/"}
+              >
                 <img className={styles["logo-img"]} src={logo} alt="Logo" />
               </Link>
             </picture>
@@ -52,7 +75,23 @@ export const Header = () => {
               isDropdownOpen ? styles["show-dropdown"] : ""
             }`}
           >
-            <Link to={"/benefits"} className={styles["nav-item"]}>
+            {links.map((item, index) => (
+              <Link
+                onClick={() => {
+                  setIsDropdownOpen(false);
+                }}
+                key={index}
+                to={item.path}
+                className={`${styles["nav-item"]} ${
+                  location.pathname === item.path
+                    ? styles["nav-item-chosen"]
+                    : ""
+                }`}
+              >
+                {item.descr}
+              </Link>
+            ))}
+            {/* <Link to={"/benefits"} className={styles["nav-item"]}>
               Преимущества Теle2
             </Link>
             <Link to={"/tariffs"} className={styles["nav-item"]}>
@@ -69,7 +108,7 @@ export const Header = () => {
             </Link>
             <Link to={"/subscription"} className={styles["nav-item"]}>
               Подключение нового абонента
-            </Link>
+            </Link> */}
           </nav>
         </div>
         {isDropdownOpen && (
