@@ -45,9 +45,18 @@ export const Header = () => {
               </Link>
             </picture>
             <p className={styles.location}>Москва и область</p>
-            <picture className={styles["bell-picture"]}>
+            <div className={styles["notification-box"]}>
+              <span className={styles["notification-count"]}>6</span>
+              <div className={styles["notification-bell"]}>
+                <span className={styles["bell-top"]}></span>
+                <span className={styles["bell-middle"]}></span>
+                <span className={styles["bell-bottom"]}></span>
+                <span className={styles["bell-rad"]}></span>
+              </div>
+            </div>
+            {/* <picture className={styles["bell-picture"]}>
               <img className={styles["bell-img"]} src={bell} alt="Bell icon" />
-            </picture>
+            </picture> */}
             <div onClick={handleDropdown} className={styles["burger-menu"]}>
               <div
                 className={`${styles["burger-bar"]} ${
