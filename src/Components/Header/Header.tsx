@@ -49,19 +49,34 @@ export const Header = () => {
         <div className="container">
           <nav
             className={`${styles.nav} ${
-              isDropdownOpen ? styles["show-dpopdow"] : ""
+              isDropdownOpen ? styles["show-dropdown"] : ""
             }`}
           >
-            <div className={styles["nav-item"]}>Преимущества Теle2</div>
-            <div className={styles["nav-item"]}>Тарифы</div>
-            <div className={styles["nav-item"]}>Акции и спецпредложения</div>
-            <div className={styles["nav-item"]}>Промотариф Tele2</div>
-            <div className={styles["nav-item"]}>Технология eSIM</div>
-            <div className={styles["nav-item"]}>
+            <Link to={"/benefits"} className={styles["nav-item"]}>
+              Преимущества Теle2
+            </Link>
+            <Link to={"/tariffs"} className={styles["nav-item"]}>
+              Тарифы
+            </Link>
+            <Link to={"/promotions"} className={styles["nav-item"]}>
+              Акции и спецпредложения
+            </Link>
+            <Link to={"/promotariff"} className={styles["nav-item"]}>
+              Промотариф Tele2
+            </Link>
+            <Link to={"/esim"} className={styles["nav-item"]}>
+              Технология eSIM
+            </Link>
+            <Link to={"/subscription"} className={styles["nav-item"]}>
               Подключение нового абонента
-            </div>
+            </Link>
           </nav>
         </div>
+        {isDropdownOpen && (
+          <div className={styles["location-wrapper"]}>
+            <p className={styles.location}>Москва и область</p>
+          </div>
+        )}
       </div>
     </header>
   );

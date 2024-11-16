@@ -42,7 +42,6 @@
 
       .burger-menu {
         display: none;
-        // position: relative;
         flex-direction: column;
         justify-content: space-between;
         width: 18px;
@@ -90,41 +89,79 @@
   }
 
   .header-lower {
+    position: relative;
+    background-color: #fff;
+
     .nav {
       display: flex;
-      flex-direction: column;
-      height: 0;
-      overflow: hidden;
-      padding: 0 3px 0 3px;
-      transition: height 0.5s ease, padding 0.5s ease;
+      height: 100%;
+      overflow-x: auto;
+      padding: 13px 0 14px 0;
+
+      @media (max-width: 480px) {
+        flex-direction: column;
+        height: 0;
+        overflow: hidden;
+        padding: 0 3px 0 3px;
+        transition: height 0.5s ease, padding 0.5s ease;
+      }
 
       .nav-item {
         position: relative;
         font-size: 14px;
         color: $primary-text-color;
+        white-space: nowrap;
 
         @media (max-width: 480px) {
           margin-bottom: 24px;
           color: #959597;
           font-weight: 700;
           font-size: 16px;
+
+          &:before {
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            left: 0;
+            bottom: -8px;
+            background-color: #ededed;
+          }
         }
 
-        &:before {
-          content: "";
-          position: absolute;
-          height: 1px;
-          width: 100%;
-          left: 0;
-          bottom: -8px;
-          background-color: #ededed;
+        &:not(:last-child) {
+          margin-right: 18px;
+
+          @media (max-width: 480px) {
+            margin-right: 0;
+          }
         }
       }
     }
 
-    .show-dpopdow {
-      height: calc(100vh - 37px);
-      padding: 24px 3px 24px 3px;
+    .show-dropdown {
+      @media (max-width: 480px) {
+        height: calc(100vh - 37px);
+        padding: 24px 3px 50px 3px;
+        overflow-y: auto;
+      }
+    }
+
+    .location-wrapper {
+      display: none;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      background-color: #ebebeb;
+      padding: 17px 20px;
+
+      @media (max-width: 480px) {
+        display: block;
+      }
+
+      .location {
+        @include location(none, inline-block);
+      }
     }
   }
 }
