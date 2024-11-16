@@ -1,6 +1,5 @@
 import styles from "./header.module.scss";
-import logo from "../../assets/Logo.svg";
-import bell from "../../assets/bell.svg";
+import logo from "../../assets/logo.svg";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
