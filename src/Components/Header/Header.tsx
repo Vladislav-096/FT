@@ -47,49 +47,20 @@ export const Header = () => {
       </div>
       <div className={styles["header-lower"]}>
         <div className="container">
-          <div
-            className={`${styles["header-lower-content"]}
-             ${isDropdownOpen ? styles["show-dropdown"] : ""}
-             `}
+          <nav
+            className={`${styles.nav} ${
+              isDropdownOpen ? styles["show-dpopdow"] : ""
+            }`}
           >
-            <nav className={styles.nav}>
-              <ul className={`list-reset ${styles["nav-lsit"]}`}>
-                <li className={styles["nav-list-item"]}>
-                  <a className={styles["nav-link"]} href="#">
-                    Преимущества Tele2
-                  </a>
-                </li>
-                <li className={styles["nav-list-item"]}>
-                  <a className={styles["nav-link"]} href="#">
-                    Тарифы
-                  </a>
-                </li>
-                <li className={styles["nav-list-item"]}>
-                  <a className={styles["nav-link"]} href="#">
-                    Акции и спецпредложения
-                  </a>
-                </li>
-                <li className={styles["nav-list-item"]}>
-                  <a className={styles["nav-link"]} href="#">
-                    Промотариф Tele2
-                  </a>
-                </li>
-                <li className={styles["nav-list-item"]}>
-                  <a className={styles["nav-link"]} href="#">
-                    Технология eSIM
-                  </a>
-                </li>
-                <li className={styles["nav-list-item"]}>
-                  <a className={styles["nav-link"]} href="#">
-                    Подключение нового абонента
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <div className={styles["location-wrapper"]}>
-              <p className={styles.location}>Москва и область</p>
+            <div className={styles["nav-item"]}>Преимущества Теle2</div>
+            <div className={styles["nav-item"]}>Тарифы</div>
+            <div className={styles["nav-item"]}>Акции и спецпредложения</div>
+            <div className={styles["nav-item"]}>Промотариф Tele2</div>
+            <div className={styles["nav-item"]}>Технология eSIM</div>
+            <div className={styles["nav-item"]}>
+              Подключение нового абонента
             </div>
-          </div>
+          </nav>
         </div>
       </div>
     </header>

@@ -2,6 +2,7 @@
 @use "../../styles/_mixin.scss" as *;
 
 .header {
+  margin-bottom: 30px;
   .header-upper {
     background-color: #1f2229;
 
@@ -89,97 +90,41 @@
   }
 
   .header-lower {
-    @media (max-width: 480px) {
+    .nav {
+      display: flex;
+      flex-direction: column;
+      height: 0;
       overflow: hidden;
-    }
-    .header-lower-content {
-      padding: 13px 0 13px 0;
-      // background-color: #ff6abc;
-      transform: translateY(-100vh);
-      transition: transform 0.4s ease-in-out;
+      padding: 0 3px 0 3px;
+      transition: height 0.5s ease, padding 0.5s ease;
 
-      @media (max-width: 480px) {
+      .nav-item {
         position: relative;
-        padding: 16px 0 16px 0;
-        height: calc(100vh - 37px);
-      }
-
-      .nav {
-        @media (max-width: 480px) {
-          height: 100%;
-          overflow-y: auto;
-          padding-bottom: 58px;
-        }
-
-        .nav-lsit {
-          display: flex;
-          flex-wrap: nowrap;
-          overflow-x: auto;
-
-          @media (max-width: 480px) {
-            flex-direction: column;
-            padding: 0 3px 0 3px;
-          }
-
-          .nav-list-item {
-            @media (max-width: 480px) {
-              position: relative;
-              padding: 8px 0 8px 0;
-
-              &::after {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 1px;
-                bottom: 0;
-                left: 0;
-                background-color: #ededed;
-              }
-            }
-
-            .nav-link {
-              font-size: 14px;
-              color: $primary-text-color;
-              white-space: nowrap;
-
-              @media (max-width: 480px) {
-                font-size: 16px;
-                color: #959597;
-                font-weight: 700;
-              }
-            }
-
-            &:not(:last-child) {
-              margin-right: 18px;
-
-              @media (max-width: 480px) {
-                margin-right: 0;
-              }
-            }
-          }
-        }
-      }
-
-      .location-wrapper {
-        display: none;
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        background-color: #fff;
-        padding-top: 17px;
-        padding-bottom: 17px;
+        font-size: 14px;
+        color: $primary-text-color;
 
         @media (max-width: 480px) {
-          display: block;
+          margin-bottom: 24px;
+          color: #959597;
+          font-weight: 700;
+          font-size: 16px;
         }
 
-        .location {
-          @include location(none, inline-block);
+        &:before {
+          content: "";
+          position: absolute;
+          height: 1px;
+          width: 100%;
+          left: 0;
+          bottom: -8px;
+          background-color: #ededed;
         }
       }
     }
-    .show-dropdown {
-      transform: translateY(0vh);
+
+    .show-dpopdow {
+      height: calc(100vh - 37px);
+      padding: 24px 3px 24px 3px;
     }
   }
 }
