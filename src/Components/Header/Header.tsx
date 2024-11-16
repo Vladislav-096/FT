@@ -2,9 +2,10 @@ import styles from "./header.module.scss";
 import logo from "../../assets/Logo.svg";
 import bell from "../../assets/bell.svg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(true);
 
   const handleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
@@ -16,9 +17,9 @@ export const Header = () => {
         <div className="container">
           <div className={styles["header-upper-content"]}>
             <picture className={styles["logo-picture"]}>
-              <a className={styles["logo-link"]} href="">
+              <Link className={styles["logo-link"]} to={"/"}>
                 <img className={styles["logo-img"]} src={logo} alt="Logo" />
-              </a>
+              </Link>
             </picture>
             <p className={styles.location}>Москва и область</p>
             <picture className={styles["bell-picture"]}>
@@ -47,9 +48,9 @@ export const Header = () => {
       <div className={styles["header-lower"]}>
         <div className="container">
           <div
-            className={`${styles["header-lower-content"]} ${
-              isDropdownOpen ? styles["show-dropdown"] : ""
-            }`}
+            className={`${styles["header-lower-content"]}
+             ${isDropdownOpen ? styles["show-dropdown"] : ""}
+             `}
           >
             <nav className={styles.nav}>
               <ul className={`list-reset ${styles["nav-lsit"]}`}>
