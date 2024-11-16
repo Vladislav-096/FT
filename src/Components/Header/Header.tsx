@@ -46,7 +46,7 @@ export const Header = () => {
             </picture>
             <p className={styles.location}>Москва и область</p>
             <div className={styles["notification-box"]}>
-              <span className={styles["notification-count"]}>6</span>
+              <span className={styles["notification-count"]}></span>
               <div className={styles["notification-bell"]}>
                 <span className={styles["bell-top"]}></span>
                 <span className={styles["bell-middle"]}></span>
@@ -54,9 +54,6 @@ export const Header = () => {
                 <span className={styles["bell-rad"]}></span>
               </div>
             </div>
-            {/* <picture className={styles["bell-picture"]}>
-              <img className={styles["bell-img"]} src={bell} alt="Bell icon" />
-            </picture> */}
             <div onClick={handleDropdown} className={styles["burger-menu"]}>
               <div
                 className={`${styles["burger-bar"]} ${
@@ -100,24 +97,6 @@ export const Header = () => {
                 {item.descr}
               </Link>
             ))}
-            {/* <Link to={"/benefits"} className={styles["nav-item"]}>
-              Преимущества Теle2
-            </Link>
-            <Link to={"/tariffs"} className={styles["nav-item"]}>
-              Тарифы
-            </Link>
-            <Link to={"/promotions"} className={styles["nav-item"]}>
-              Акции и спецпредложения
-            </Link>
-            <Link to={"/promotariff"} className={styles["nav-item"]}>
-              Промотариф Tele2
-            </Link>
-            <Link to={"/esim"} className={styles["nav-item"]}>
-              Технология eSIM
-            </Link>
-            <Link to={"/subscription"} className={styles["nav-item"]}>
-              Подключение нового абонента
-            </Link> */}
           </nav>
         </div>
         {isDropdownOpen && (

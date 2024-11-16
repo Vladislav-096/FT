@@ -22,41 +22,27 @@
         @include location;
       }
 
-      .logo-link {
-      }
-
-      .bell-picture {
-        margin-left: auto;
+      .notification-box {
+        position: relative;
+        z-index: 99;
+        text-align: center;
         cursor: pointer;
+        transform: rotate(-45deg);
 
         @media (max-width: 480px) {
           margin-right: 23px;
         }
-      }
-
-      // test
-      .notification-box {
-        position: relative;
-        z-index: 99;
-        // top: 30px;
-        // right: 30px;
-        width: 49px;
-        height: 50px;
-        text-align: center;
 
         .notification-count {
-          display: none;
+          display: block;
           position: absolute;
-          z-index: 1;
-          top: -6px;
-          right: -6px;
-          width: 30px;
-          height: 30px;
-          line-height: 30px;
-          font-size: 18px;
-          border-radius: 50%;
-          background-color: #ff4927;
-          color: #fff;
+          background-image: url("./src/assets/dot.svg");
+          background-repeat: no-repeat;
+          width: 10px;
+          height: 10px;
+          top: 3px;
+          left: 11px;
+          z-index: 1111;
           animation: zoom 3s 3s both infinite;
         }
 
@@ -64,29 +50,27 @@
           animation: bell 1s 1s both infinite;
           .bell-top {
             width: 6px;
-            height: 6px;
+            height: 5px;
+            background-color: transparent;
+            border: 2px solid #fff;
             border-radius: 3px 3px 0 0;
           }
 
           .bell-middle {
-            width: 22px;
-            height: 25px;
+            width: 14px;
+            height: 13px;
             margin-top: -1px;
-            border-radius: 12.5px 12.5px 0 0;
+            background-color: transparent;
+            border: 2px solid #fff;
             border-bottom: none;
+            border-radius: 12.5px 12.5px 0 0;
           }
 
           .bell-bottom {
             position: relative;
             z-index: 0;
-            width: 33px;
+            width: 20px;
             height: 2px;
-            background-color: #fff;
-            border-radius: 1px;
-            bottom: 0;
-            left: 0.2px;
-            // border: 1px solid #fff;
-            border: none;
 
             &::before,
             &::after {
@@ -96,24 +80,26 @@
             }
 
             &::before {
-              left: 0px;
-              border-bottom: 5px solid #fff;
+              left: 1px;
+              border-bottom: 4px solid #fff;
               border-right: 0 solid transparent;
-              border-left: 6px solid transparent;
+              border-left: 4px solid transparent;
             }
 
             &::after {
-              right: 0px;
-              border-bottom: 5px solid #fff;
-              border-right: 6px solid transparent;
+              right: 1px;
+              border-bottom: 4px solid #fff;
+              border-right: 4px solid transparent;
               border-left: 0 solid transparent;
             }
           }
 
           .bell-rad {
-            width: 9px;
+            width: 8px;
             height: 6px;
             margin-top: -1px;
+            background-color: transparent;
+            border: 2px solid #fff;
             border-radius: 0 0 4px 4px;
             animation: rad 1s 2s both infinite;
           }
@@ -122,77 +108,70 @@
         .notification-bell * {
           display: block;
           margin: 0 auto;
-          background-color: transparent;
-          // box-shadow: 0px 0px 15px #fff;
-          border: 2px solid #fff;
+          background-color: #fff;
         }
 
-        // @keyframes bell {
-        //   0% {
-        //     transform: rotate(0);
-        //   }
-        //   10% {
-        //     transform: rotate(30deg);
-        //   }
-        //   20% {
-        //     transform: rotate(0);
-        //   }
-        //   80% {
-        //     transform: rotate(0);
-        //   }
-        //   90% {
-        //     transform: rotate(-30deg);
-        //   }
-        //   100% {
-        //     transform: rotate(0);
-        //   }
-        // }
-        // @keyframes rad {
-        //   0% {
-        //     transform: translateX(0);
-        //   }
-        //   10% {
-        //     transform: translateX(6px);
-        //   }
-        //   20% {
-        //     transform: translateX(0);
-        //   }
-        //   80% {
-        //     transform: translateX(0);
-        //   }
-        //   90% {
-        //     transform: translateX(-6px);
-        //   }
-        //   100% {
-        //     transform: translateX(0);
-        //   }
-        // }
-        // @keyframes zoom {
-        //   0% {
-        //     opacity: 0;
-        //     transform: scale(0);
-        //   }
-        //   10% {
-        //     opacity: 1;
-        //     transform: scale(1);
-        //   }
-        //   50% {
-        //     opacity: 1;
-        //   }
-        //   51% {
-        //     opacity: 0;
-        //   }
-        //   100% {
-        //     opacity: 0;
-        //   }
-        // }
-      }
-      //test
+        @keyframes bell {
+          0% {
+            transform: rotate(0);
+          }
+          10% {
+            transform: rotate(30deg);
+          }
+          20% {
+            transform: rotate(0);
+          }
+          80% {
+            transform: rotate(0);
+          }
+          90% {
+            transform: rotate(-30deg);
+          }
+          100% {
+            transform: rotate(0);
+          }
+        }
 
-      .bell-img {
-      }
+        @keyframes rad {
+          0% {
+            transform: translateX(0);
+          }
+          10% {
+            transform: translateX(2.5px);
+          }
+          20% {
+            transform: translateX(0);
+          }
+          80% {
+            transform: translateX(0);
+          }
+          90% {
+            transform: translateX(-2.5px);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
 
-      .burger-cross {
+        @keyframes zoom {
+          0% {
+            opacity: 0;
+            transform: scale(0);
+          }
+          10% {
+            opacity: 1;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 1;
+          }
+          51% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 0;
+          }
+        }
       }
 
       .burger-menu {
